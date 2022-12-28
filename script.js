@@ -54,7 +54,7 @@ async function sendMail(toAll = false) {
   console.log(toEmailList);
 
   const params = {
-    subject: `${mailType} ${personName} - ${status}`,
+    subject: `${mailType} ${personName} - ${state}`,
     content: `Email Response:\n${text}`,
     toEmail: toEmailList,
   };
