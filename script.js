@@ -17,8 +17,6 @@ const mailDate = urlParams.get("maildate");
 const pocEmail = urlParams.get("poc");
 const currDate = new Date().toLocaleString();
 
-if (!personName) return;
-
 const obj = {
   state,
   personName,
@@ -29,7 +27,7 @@ const obj = {
 };
 
 async function sendMail(toAll = false) {
-  // return;
+  if (!personName) return;
   let toEmailList;
   if (toAll) {
     if (mailType.includes("sponsor")) {
