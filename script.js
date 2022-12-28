@@ -1,13 +1,17 @@
-const speakerEmailRecipients = ["gokz1119@gmail.com"];
+const speakerEmailRecipients = [
+  "razeenv53@gmail.com",
+  "adithyaanilkumar1@gmail.com",
+  "annatphilip@gmail.com",
+  "123sudeepsangeeth@gmail.com",
+];
 const sponsorEmailRecipients = [
-  "aldrinjenson@gmail.com",
-  // "aldrinjenson@gmail.com",
+  "razeenv53@gmail.com",
+  "adithyaanilkumar1@gmail.com",
+  "2002sreehari@gmail.com",
+  "adithyakartha.007@gmail.com",
 ];
-const primaryEmailsList = [
-  // "iedcmec1111111@mec.ac.in",
-  // "mdl19cs008@mec.ac.in",
-  "aldrinjenson@gmail.com",
-];
+
+const primaryEmailsList = ["iedc@mec.ac.in"];
 
 const urlParams = new URLSearchParams(window.location.search);
 const state = urlParams.get("state");
@@ -41,7 +45,7 @@ async function sendMail(toAll = false) {
   }
 
   const url =
-    "https://w2e9j471i2.execute-api.ap-south-1.amazonaws.com/dev/send-email";
+    "https://qosa8moqk9.execute-api.us-east-1.amazonaws.com/dev/send-email";
   const text = Object.entries(obj).reduce(
     (acc, [key, value]) => acc + `${key}: ${value}\n`,
     ""
