@@ -45,7 +45,7 @@ async function sendMail(toAll = false) {
   }
 
   const url =
-    "https://qosa8moqk9.execute-api.us-east-1.amazonaws.com/dev/send-email";
+    "https://w2e9j471i2.execute-api.ap-south-1.amazonaws.com/dev/send-email";
   const text = Object.entries(obj).reduce(
     (acc, [key, value]) => acc + `${key}: ${value}\n`,
     ""
