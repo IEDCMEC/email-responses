@@ -1,7 +1,4 @@
-const speakerEmailRecipients = [
-  "annamma, sudeepasdfasdfasdfsdafdsf@gmail.com",
-  "gokz1119@gmail.com",
-];
+const speakerEmailRecipients = ["gokz1119@gmail.com"];
 const sponsorEmailRecipients = [
   "aldrinjenson@gmail.com",
   // "aldrinjenson@gmail.com",
@@ -9,15 +6,18 @@ const sponsorEmailRecipients = [
 const primaryEmailsList = [
   // "iedcmec1111111@mec.ac.in",
   // "mdl19cs008@mec.ac.in",
+  "aldrinjenson@gmail.com",
 ];
 
 const urlParams = new URLSearchParams(window.location.search);
 const state = urlParams.get("state");
 const personName = urlParams.get("name");
 const mailType = urlParams.get("type");
-const mailDate = urlParams.get("mailDate");
+const mailDate = urlParams.get("maildate");
 const pocEmail = urlParams.get("poc");
 const currDate = new Date().toLocaleString();
+
+if (!personName) return;
 
 const obj = {
   state,
@@ -29,6 +29,7 @@ const obj = {
 };
 
 async function sendMail(toAll = false) {
+  // return;
   let toEmailList;
   if (toAll) {
     if (mailType.includes("sponsor")) {
@@ -48,6 +49,7 @@ async function sendMail(toAll = false) {
     ""
   );
   console.log(text);
+  console.log(toEmailList);
 
   const params = {
     subject: `${mailType} ${personName} - ${status}`,

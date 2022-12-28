@@ -28,7 +28,7 @@
     for (const [key, value] of currentParams.entries()) {
       newParams.set(key, value);
     }
-    if (currentParams.keys().length) {
+    if (currentParams.get('name')) {
       sendMail()
         .then(() => {
           if (state === "red") {
