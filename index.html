@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./index.css">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="loading-spinner-container">
+    <div class="loading-spinner">
+      <div class="bounce1"></div>
+      <div class="bounce2"></div>
+      <div class="bounce3"></div>
+    </div>
+
+    <div class="loading-text">Thank You!</div>
+    <div class="loading-text">Informing organizers...</div>
+  </div>
+  <script src="./script.js"></script>
+  <script>
+
+    const currentParams = new URLSearchParams(window.location.search);
+    let newParams = new URLSearchParams();
+    for (const [key, value] of currentParams.entries()) {
+      newParams.set(key, value);
+    }
+
+    sendMail()
+      .then(() => {
+        if (state === "red") {
+          window.location.href = "/red.html" + "?" + newParams.toString();
+        } else if (state === "yellow") {
+          window.location.href = "/yellow.html" + "?" + newParams.toString()
+        } else {
+          window.location.href = "/green.html" + "?" + newParams.toString()
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+        window.location.href = "/error.html";
+      });
+  </script>
+</body>
+
+</html>
